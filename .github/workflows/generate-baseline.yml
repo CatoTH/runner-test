@@ -18,6 +18,7 @@ jobs:
           path: src/
           level: 7
           generate_baseline: phpstan-baseline.neon
+          error_format: github
       - name: Upload baseline
         uses: actions/upload-artifact@v3
         with:

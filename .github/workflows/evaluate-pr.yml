@@ -26,3 +26,4 @@ jobs:
           path: src/
           configuration: phpstan-use-baseline.neon
           level: 7
+          error_format: github
