@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - first-pr
-  pull_request: {}
+  #pull_request: {}
 
 jobs:
   download-test:
@@ -16,7 +16,7 @@ jobs:
         with:
           workflow: 24222701
           workflow_conclusion: success
-          commit: a7fa7ee99b3c7703f100080703207d4de1274cad
+          branch: main
       - uses: actions/checkout@v2
       - uses: php-actions/composer@v6 # or alternative dependency management
       - name: Analyze code
