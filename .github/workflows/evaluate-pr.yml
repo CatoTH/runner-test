@@ -14,7 +14,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           # Required, workflow file name or ID
-          workflow: generate-baseline.yml
+          workflow: generate-baseline
           # Optional, the status or conclusion of a completed workflow to search for
           # Can be one of a workflow conclusion:
           #   "failure", "success", "neutral", "cancelled", "skipped", "timed_out", "action_required"
@@ -22,7 +22,8 @@ jobs:
           #   "completed", "in_progress", "queued"
           # workflow_conclusion: success
           # Optional, will use the branch
-          branch: main
+          # branch: main
+          commit: 3461bb5e3348c4d58c5b1be045a60df5e10a33c4
           # Optional, uploaded artifact name,
           # will download all artifacts if not specified
           # and extract them in respective subdirectories
