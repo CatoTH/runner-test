@@ -12,6 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: php-actions/composer@v6 # or alternative dependency management
+      - name: Generate baseline
+        run: |
+          php vendor/bin/phpstan analyse src/ --level=7 --error-format=github --configuration=phpstan-use-baseline.neon
       - name: Analyze code
         uses: php-actions/phpstan@v3
         with:
