@@ -20,7 +20,7 @@ jobs:
           #   "failure", "success", "neutral", "cancelled", "skipped", "timed_out", "action_required"
           # Or a workflow status:
           #   "completed", "in_progress", "queued"
-          workflow_conclusion: success
+          # workflow_conclusion: success
           # Optional, will use the branch
           branch: main
           # Optional, uploaded artifact name,
