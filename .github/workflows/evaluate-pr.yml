@@ -13,25 +13,9 @@ jobs:
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          github_token: ${{secrets.GITHUB_TOKEN}}
-          # Required, workflow file name or ID
           workflow: generate-baseline
-          # Optional, the status or conclusion of a completed workflow to search for
-          # Can be one of a workflow conclusion:
-          #   "failure", "success", "neutral", "cancelled", "skipped", "timed_out", "action_required"
-          # Or a workflow status:
-          #   "completed", "in_progress", "queued"
-          # workflow_conclusion: success
-          # Optional, will use the branch
-          # branch: main
-          commit: 3461bb5e3348c4d58c5b1be045a60df5e10a33c4
-          # Optional, uploaded artifact name,
-          # will download all artifacts if not specified
-          # and extract them in respective subdirectories
-          # https://github.com/actions/download-artifact#download-all-artifacts
-          name: phpstan-baseline.neon
-          # Optional, directory where to extract artifact(s), defaults to current directory
-          # path: phpstan-baseline.neon
+          workflow_conclusion: success
+          commit: ${{github.event.pull_request.head.sha}}
       - uses: actions/checkout@v2
       - uses: php-actions/composer@v6 # or alternative dependency management
       - name: Analyze code
