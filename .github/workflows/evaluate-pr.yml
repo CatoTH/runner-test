@@ -1,4 +1,4 @@
-name: CI
+name: evaluate-pr
 
 on:
   push:
