@@ -13,6 +13,7 @@ jobs:
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v2
         with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
           # Required, workflow file name or ID
           workflow: generate-baseline
           # Optional, the status or conclusion of a completed workflow to search for
@@ -28,7 +29,7 @@ jobs:
           # will download all artifacts if not specified
           # and extract them in respective subdirectories
           # https://github.com/actions/download-artifact#download-all-artifacts
-          # name: phpstan-baseline.neon
+          name: phpstan-baseline.neon
           # Optional, directory where to extract artifact(s), defaults to current directory
           # path: phpstan-baseline.neon
       - uses: actions/checkout@v2
