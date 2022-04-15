@@ -5,4 +5,4 @@ function test(): void
 
 }
 
-test();
+test2();
