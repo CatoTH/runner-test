@@ -1,3 +1,8 @@
 <?php
 
-test();
+function test(): void
+{
+
+}
+
+test2();

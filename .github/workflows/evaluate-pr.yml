@@ -4,36 +4,25 @@ on:
   push:
     branches:
       - first-pr
+  #pull_request: {}
 
 jobs:
   download-test:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
+      - uses: php-actions/composer@v6 # or alternative dependency management
+        with:
+          php_version: "8.0"
+          php_extensions: zip intl gd
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          # Required, workflow file name or ID
-          workflow: generate-baseline.yml
-          # Optional, the status or conclusion of a completed workflow to search for
-          # Can be one of a workflow conclusion:
-          #   "failure", "success", "neutral", "cancelled", "skipped", "timed_out", "action_required"
-          # Or a workflow status:
-          #   "completed", "in_progress", "queued"
+          workflow: .github/workflows/generate-baseline.yml
           workflow_conclusion: success
-          # Optional, will use the branch
-          branch: main
-          # Optional, uploaded artifact name,
-          # will download all artifacts if not specified
-          # and extract them in respective subdirectories
-          # https://github.com/actions/download-artifact#download-all-artifacts
+          commit: ${{github.event.pull_request.head.sha}}
           name: phpstan-baseline.neon
-          # Optional, directory where to extract artifact(s), defaults to current directory
-          path: phpstan-baseline.neon
-      - uses: actions/checkout@v2
-      - uses: php-actions/composer@v6 # or alternative dependency management
-      - name: Analyze code
-        uses: php-actions/phpstan@v3
-        with:
-          path: src/
-          configuration: phpstan-use-baseline.neon
+      - name: phpstan
+        run: |
+          php vendor/bin/phpstan analyse src/ --level=7 --error-format=github --configuration=phpstan-use-baseline.neon
