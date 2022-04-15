@@ -27,9 +27,9 @@ jobs:
           # will download all artifacts if not specified
           # and extract them in respective subdirectories
           # https://github.com/actions/download-artifact#download-all-artifacts
-          name: phpstan-baseline.neon
+          # name: phpstan-baseline.neon
           # Optional, directory where to extract artifact(s), defaults to current directory
-          path: phpstan-baseline.neon
+          # path: phpstan-baseline.neon
       - uses: actions/checkout@v2
       - uses: php-actions/composer@v6 # or alternative dependency management
       - name: Analyze code
