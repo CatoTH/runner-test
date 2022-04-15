@@ -17,6 +17,8 @@ jobs:
           workflow: .github/workflows/generate-baseline.yml
           workflow_conclusion: success
           commit: a7fa7ee99b3c7703f100080703207d4de1274cad
+          name: phpstan-baseline.neon
+          path: /app/phpstan-baseline.neon
       - uses: actions/checkout@v2
       - uses: php-actions/composer@v6 # or alternative dependency management
       - name: Analyze code
