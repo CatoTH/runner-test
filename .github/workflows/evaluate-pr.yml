@@ -18,7 +18,7 @@ jobs:
         with:
           workflow: .github/workflows/generate-baseline.yml
           workflow_conclusion: success
-          commit: a7fa7ee99b3c7703f100080703207d4de1274cad
+          branch: main
           name: phpstan-baseline.neon
       - name: phpstan
         run: |
