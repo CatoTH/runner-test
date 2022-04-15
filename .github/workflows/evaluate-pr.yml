@@ -14,9 +14,9 @@ jobs:
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          workflow: 24222701
+          workflow: .github/workflows/generate-baseline.yml
           workflow_conclusion: success
-          branch: main
+          commit: a7fa7ee99b3c7703f100080703207d4de1274cad
       - uses: actions/checkout@v2
       - uses: php-actions/composer@v6 # or alternative dependency management
       - name: Analyze code
