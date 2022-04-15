@@ -1,0 +1,17 @@
+{
+    "name": "catoth/runner-test",
+    "autoload": {
+        "psr-4": {
+            "Catoth\\RunnerTest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tobias Hößl",
+            "email": "tobias@hoessl.eu"
+        }
+    ],
+    "require-dev": {
+        "phpstan/phpstan": "^1.5"
+    }
+}
