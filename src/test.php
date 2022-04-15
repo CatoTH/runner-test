@@ -2,7 +2,7 @@
 
 function test(): void
 {
-    
+
 }
 
 test();
