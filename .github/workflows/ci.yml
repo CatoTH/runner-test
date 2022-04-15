@@ -9,6 +9,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: php-actions/composer@v6 # or alternative dependency management
-      - uses: php-actions/phpstan@v3
+      - name: Analyze code
+        uses: php-actions/phpstan@v3
         with:
           path: src/
+          level: 7
+          generate_baseline: phpstan-baseline.neon
+      - name: Upload baseline
+        uses: actions/upload-artifact@v3
+        with:
+          name: phpstan-baseline.neon
+          path: phpstan-baseline.neon
