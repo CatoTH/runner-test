@@ -20,10 +20,13 @@ jobs:
           workflow_conclusion: success
           commit: a7fa7ee99b3c7703f100080703207d4de1274cad
           name: phpstan-baseline.neon
-      - name: Analyze code
-        uses: php-actions/phpstan@v3
-        with:
-          path: src/
-          configuration: phpstan-use-baseline.neon
-          level: 7
-          error_format: github
+      #- name: Analyze code
+      #  uses: php-actions/phpstan@v3
+      #  with:
+      #    path: src/
+      #    configuration: phpstan-use-baseline.neon
+      #    level: 7
+      #    error_format: github
+      - name: phpstan
+        run: |
+          php vendor/bin/phpstan analyse src/ --level=7 --error-format=github
