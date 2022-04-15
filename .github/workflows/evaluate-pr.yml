@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - first-pr
+  pull_request: {}
 
 jobs:
   download-test:
